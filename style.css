@@ -1,0 +1,63 @@
+/* POLICE */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+/*  FOND DE L'HORLOGE */
+
+html { 
+    background: url(sunset.jpg);
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 10px;
+}
+
+body { 
+    margin: 0;
+    font-size: 2rem;
+    display: flex; 
+    flex: 1;
+    min-height: 100vh;
+    align-items: center;
+}
+
+.clock {
+    width: 30rem;
+    height: 30rem;
+    border: 20px solid #f6bd60;
+    border-radius: 50%;
+    margin: 50px auto; 
+    position: relative;
+    padding: 2rem;
+    box-shadow:
+    0 0 0 4px rgba(0,0,0,0.1),
+    inset 0 0 0 3px #f4d58d,
+    inset 0 0 10px black,
+    0 0 10px rgba(0,0,0,0.2);
+}
+
+.clock-face { 
+position: relative;
+width: 100%;
+height: 100%;
+transform: translateY(-3px);
+}
+
+.hand {
+    width: 50%;
+    height: 6px;
+    background: black;
+    position: absolute;
+    top: 50%;
+    transform-origin: 100%; 
+    transform: rotate(90deg);
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58,);
+}
+
+/* Conteneur flexible */
+/* La propriété flex est une propriété raccourcie qui définit la capacité d'un élément flexible 
+à modifier ses dimensions afin de remplir l'espace disponible de son conteneur. */
+/* La propriété transform-origin permet de modifier l'origine du repère 
+pour les opérations de transformation d'un élément. */
+/* La propriété transition-timing-function décrit la façon dont les valeurs intermédiaires des propriétés CSS affectées par un effet de transition sont calculées. Ceci permet donc de définir une courbe d'accelération,
+ de manière à ce que la vitesse de la transition varie au cours de sa durée. */

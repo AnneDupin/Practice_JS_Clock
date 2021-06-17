@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock (Made in JS + CSS (inspiration by Ziratsu))</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Forme de l'horloge -->
+
+<div class="clock">
+<div class="clock-face">
+    <div class="hand hour-hand"></div>
+    <div class="hand min-hand"></div>
+    <div class="hand second-hand"></div>
+</div>
+</div>
+
+<!-- LE SCRIPT JS DE L'HORLOGE -->
+
+<script>
+
+// La div des secondes
+// La div des minutes
+// La div des heures
+
+// const secDeg = ((seconds/60)* 360 + 90);
+// On extrait les secondes de now
+// SecDeg = secondes degré selon la position de l'horloge
+// Donne la position de la seconde, par rapport à la position de la seconde elle-même
+// secondDiv.style.transform = `rotate(${secDeg}deg)`;
+//change la propriété rotate qui permet de la faire rotate par rappor aux calculs
+// La méthode setDate() définit le jour du mois (relatif au début du mois courant) 
+// pour une date donnée. 
+// On peut en JavaScript déclencher des action après un intervalle de temps donné, ou de la répéter après un intervalle de temps.
+
+// const mins = now.getMinutes(); // minutes extraitent de now
+
+const secondDiv = document.querySelector('.second-hand');
+    const minDiv = document.querySelector('.min-hand');
+    const hourDiv = document.querySelector('.hour-hand');
+    
+    
+    function setDate(){
+        
+        const now = new Date();
+        const seconds = now.getSeconds();
+        const secDeg = ((seconds/60)* 360 + 90);
+        secondDiv.style.transform = `rotate(${secDeg}deg)`;
+        
+        
+        const mins = now.getMinutes();
+        const minDeg = ((mins/60) * 360) + ((seconds/60)*6) + 90;
+        minDiv.style.transform = `rotate(${minDeg}deg)`;
+        
+        
+        const hour = now.getHours();
+        const hourDeg = ((hour/12)*360) + ((mins/60)*30) + 90;
+        hourDiv.style.transform = `rotate(${hourDeg}deg)`;
+        
+        
+    }
+    
+  setInterval(setDate,1000);
+
+</script>
+</body>
+</html>
+
